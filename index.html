@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>پرامپت نویس هوش مصنوعی</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 class="title">🤖 پرامپت نویس هوش مصنوعی</h1>
+
+      <div class="input-section">
+        <div class="input-group">
+          <label for="task">TASK:</label>
+          <textarea
+            id="task"
+            placeholder="من می‌خوام که [توضیح دقیق کار] انجام بدی."
+          >
+من می‌خوام که [توضیح دقیق کار] انجام بدی.</textarea
+          >
+        </div>
+
+        
+        <div class="input-group">
+          <label for="context">CONTEXT:</label>
+          <textarea
+            id="context"
+            placeholder="این مربوط به پروژه‌ایه که [توضیح پروژه، تکنولوژی، دیتا، مشکل خاص و ...]."
+          >
+این مربوط به پروژه‌ایه که [توضیح پروژه، تکنولوژی، دیتا، مشکل خاص و ...].</textarea
+          >
+        </div>
+
+        <div class="input-group">
+          <label for="format">FORMAT:</label>
+          <textarea
+            id="format"
+            placeholder="جواب رو لطفا به صورت [نوع فرمت مورد انتظار، مثل کد کامل با توضیح، لیست، جدول، نکات مرحله‌به‌مرحله، و ...] بده."
+          >
+جواب رو لطفا به صورت [نوع فرمت مورد انتظار، مثل کد کامل با توضیح، لیست، جدول، نکات مرحله‌به‌مرحله، و ...] بده.</textarea
+          >
+        </div>
+
+        <div class="input-group">
+          <label for="persona">PERSONA:</label>
+          <textarea
+            id="persona"
+            placeholder="لطفا نقش [تخصص مورد نظر مثل برنامه‌نویس سینیر PHP، مدرس دانشگاه، مشاور محصول، داکیومنت رسمی] رو بازی کن."
+          >
+لطفا نقش [تخصص مورد نظر مثل برنامه‌نویس سینیر PHP، مدرس دانشگاه، مشاور محصول، داکیومنت رسمی] رو بازی کن.</textarea
+          >
+        </div>
+
+        <div class="input-group">
+          <label for="tone">TONE:</label>
+          <textarea
+            id="tone"
+            placeholder="لحن پاسخ [رسمی، صمیمی، آموزشی، مرحله‌ای، پیشرفته، فارسی ساده، انگلیسی تکنیکال، و...] باشه."
+          >
+لحن پاسخ [رسمی، صمیمی، آموزشی، مرحله‌ای، پیشرفته، فارسی ساده، انگلیسی تکنیکال، و...] باشه.</textarea
+          >
+        </div>
+      </div>
+
+      <div class="button-section">
+        <button id="generateBtn" class="generate-btn">🔄 تولید پرامپت</button>
+        <button id="copyBtn" class="copy-btn">📋 کپی کردن</button>
+      </div>
+
+      <div class="output-section">
+        <h3>پرامپت تولید شده:</h3>
+        <div id="output" class="output-box"></div>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
