@@ -1,82 +1,100 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>پرامپت نویس هوش مصنوعی</title>
-    <link rel="stylesheet" href="./style.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🤖 پرامپت نویس هوش مصنوعی</title>
 
-  <body>
-    <div class="container">
-      <h1 class="title">🤖 پرامپت نویس هوش مصنوعی</h1>
+  <link rel="stylesheet" href="style.css" />
+  <!-- CodeMirror CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/theme/dracula.min.css" />
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">🤖 پرامپت نویس هوش مصنوعی</h1>
 
-      <div class="input-section">
-        <div class="input-group">
-          <label for="task">TASK:</label>
-          <textarea
-            id="task"
-            placeholder="من می‌خوام که [توضیح دقیق کار] انجام بدی."
-          >
-من می‌خوام که [توضیح دقیق کار] انجام بدی.</textarea
-          >
-        </div>
-
-
-
-        
-        <div class="input-group">
-          <label for="context">CONTEXT:</label>
-          <textarea
-            id="context"
-            placeholder="این مربوط به پروژه‌ایه که [توضیح پروژه، تکنولوژی، دیتا، مشکل خاص و ...]."
-          >
-این مربوط به پروژه‌ایه که [توضیح پروژه، تکنولوژی، دیتا، مشکل خاص و ...].</textarea
-          >
-        </div>
-
-        <div class="input-group">
-          <label for="format">FORMAT:</label>
-          <textarea
-            id="format"
-            placeholder="جواب رو لطفا به صورت [نوع فرمت مورد انتظار، مثل کد کامل با توضیح، لیست، جدول، نکات مرحله‌به‌مرحله، و ...] بده."
-          >
-جواب رو لطفا به صورت [نوع فرمت مورد انتظار، مثل کد کامل با توضیح، لیست، جدول، نکات مرحله‌به‌مرحله، و ...] بده.</textarea
-          >
-        </div>
-
-        <div class="input-group">
-          <label for="persona">PERSONA:</label>
-          <textarea
-            id="persona"
-            placeholder="لطفا نقش [تخصص مورد نظر مثل برنامه‌نویس سینیر PHP، مدرس دانشگاه، مشاور محصول، داکیومنت رسمی] رو بازی کن."
-          >
-لطفا نقش [تخصص مورد نظر مثل برنامه‌نویس سینیر PHP، مدرس دانشگاه، مشاور محصول، داکیومنت رسمی] رو بازی کن.</textarea
-          >
-        </div>
-
-        <div class="input-group">
-          <label for="tone">TONE:</label>
-          <textarea
-            id="tone"
-            placeholder="لحن پاسخ [رسمی، صمیمی، آموزشی، مرحله‌ای، پیشرفته، فارسی ساده، انگلیسی تکنیکال، و...] باشه."
-          >
-لحن پاسخ [رسمی، صمیمی، آموزشی، مرحله‌ای، پیشرفته، فارسی ساده، انگلیسی تکنیکال، و...] باشه.</textarea
-          >
-        </div>
+    <div class="input-section">
+      <!-- فیلدهای اصلی (مثل قبل) -->
+      <div class="input-group">
+        <label for="task">وظیفه:</label>
+        <textarea id="task" placeholder="من می‌خوام که [توضیح دقیق کار] انجام بدی.">من می‌خوام که [توضیح دقیق کار] انجام بدی.</textarea>
       </div>
 
-      <div class="button-section">
-        <button id="generateBtn" class="generate-btn">🔄 تولید پرامپت</button>
-        <button id="copyBtn" class="copy-btn">📋 کپی کردن</button>
+      <div class="input-group">
+        <label for="context">محتوا:</label>
+        <textarea id="context" placeholder="این مربوط به پروژه‌ایه که [توضیح پروژه، تکنولوژی، دیتا، مشکل خاص و ...].">این مربوط به پروژه‌ایه که [توضیح پروژه، تکنولوژی، دیتا، مشکل خاص و ...].</textarea>
       </div>
 
-      <div class="output-section">
-        <h3>پرامپت تولید شده:</h3>
-        <div id="output" class="output-box"></div>
+      <div class="input-group">
+        <label for="format">فرمت:</label>
+        <textarea id="format" placeholder="جواب رو لطفا به صورت [نوع فرمت مورد انتظار، مثل کد کامل با توضیح، لیست، جدول، نکات مرحله‌به‌مرحله، و ...] بده.">جواب رو لطفا به صورت [نوع فرمت مورد انتظار، مثل کد کامل با توضیح، لیست، جدول، نکات مرحله‌به‌مرحله، و ...] بده.</textarea>
+      </div>
+
+      <div class="input-group">
+        <label for="persona">شخصبت:</label>
+        <textarea id="persona" placeholder="لطفا نقش [تخصص مورد نظر مثل برنامه‌نویس سینیر PHP، مدرس دانشگاه، مشاور محصول، داکیومنت رسمی] رو بازی کن.">لطفا نقش [تخصص مورد نظر مثل برنامه‌نویس سینیر PHP، مدرس دانشگاه، مشاور محصول، داکیومنت رسمی] رو بازی کن.</textarea>
+      </div>
+
+      <div class="input-group">
+        <label for="tone">لحن:</label>
+        <textarea id="tone" placeholder="لحن پاسخ [رسمی، صمیمی، آموزشی، مرحله‌ای، پیشرفته، فارسی ساده، انگلیسی تکنیکال، و...] باشه.">لحن پاسخ [رسمی، صمیمی، آموزشی، مرحله‌ای، پیشرفته، فارسی ساده، انگلیسی تکنیکال، و...] باشه.</textarea>
+      </div>
+
+      <!-- بخش HTML Code -->
+      <div class="input-group">
+        <label for="htmlCode">کد HTML (اختیاری):</label>
+        <textarea id="htmlCode" placeholder="کد HTML خود را اینجا وارد کنید..."></textarea>
+      </div>
+      <button class="toggle-functions-btn" data-target="htmlFunctions">نمایش/مخفی فانکشن‌های HTML</button>
+      <div class="input-group functions-group" id="htmlFunctions" style="display:none;">
+        <label for="htmlFunctionsTextarea">فانکشن‌های HTML (اختیاری):</label>
+        <textarea id="htmlFunctionsTextarea" placeholder="فانکشن‌های HTML خود را اینجا وارد کنید..."></textarea>
+      </div>
+
+      <!-- بخش jQuery Code -->
+      <div class="input-group">
+        <label for="jqueryCode">کد jQuery (اختیاری):</label>
+        <textarea id="jqueryCode" placeholder="کد jQuery خود را اینجا وارد کنید..."></textarea>
+      </div>
+      <button class="toggle-functions-btn" data-target="jqueryFunctions">نمایش/مخفی فانکشن‌های jQuery</button>
+      <div class="input-group functions-group" id="jqueryFunctions" style="display:none;">
+        <label for="jqueryFunctionsTextarea">فانکشن‌های jQuery (اختیاری):</label>
+        <textarea id="jqueryFunctionsTextarea" placeholder="فانکشن‌های jQuery خود را اینجا وارد کنید..."></textarea>
+      </div>
+
+      <!-- بخش Backend Code -->
+      <div class="input-group">
+        <label for="backendCode">کد Backend (اختیاری):</label>
+        <textarea id="backendCode" placeholder="کد Backend خود را اینجا وارد کنید..."></textarea>
+      </div>
+      <button class="toggle-functions-btn" data-target="backendFunctions">نمایش/مخفی فانکشن‌های Backend</button>
+      <div class="input-group functions-group" id="backendFunctions" style="display:none;">
+        <label for="backendFunctionsTextarea">فانکشن‌های Backend (اختیاری):</label>
+        <textarea id="backendFunctionsTextarea" placeholder="فانکشن‌های Backend خود را اینجا وارد کنید..."></textarea>
       </div>
     </div>
 
-    <script src="./script.js"></script>
-  </body>
+    <div class="button-section">
+      <button id="generateBtn" class="generate-btn">🔄 تولید پرامپت</button>
+      <button id="copyBtn" class="copy-btn" disabled>📋 کپی کردن</button>
+    </div>
+
+    <div class="output-section">
+      <h3>پرامپت تولید شده:</h3>
+      <div id="output" class="output-box" contenteditable="true"></div>
+    </div>
+  </div>
+
+  <!-- کتابخانه CodeMirror -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
+  <!-- مودهای سینتکس -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/javascript/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/htmlmixed/htmlmixed.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/xml/xml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/css/css.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/php/php.min.js"></script>
+  
+  <script src="script.js"></script>
+</body>
 </html>

@@ -51,28 +51,48 @@ body {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-.input-group textarea {
+
+textarea {
   width: 100%;
   min-height: 90px;
   padding: 18px;
   border: 2px solid #3e8e41;
   border-radius: 14px;
   font-size: 1rem;
-  font-family: inherit;
+  font-family: 'Courier New', Courier, monospace;
   resize: vertical;
-  background: #133d27;
-  color: #d0f0c0;
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  box-shadow: inset 0 0 8px #0e8f0e88;
   transition: all 0.35s ease;
-  box-shadow: inset 0 0 10px #2f6e34;
 }
 
-.input-group textarea:focus {
+
+
+textarea:focus {
   outline: none;
-  border-color: #a2d39c;
-  background: #1a5c39;
-  box-shadow: 0 0 8px 3px #a2d39c88;
+  border-color: #4caf50;
+  box-shadow: 0 0 10px #4caf50;
 }
 
+
+.toggle-functions-btn {
+  background-color: #2f513f;
+  color: #a8d5a8;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 0 8px #2f513f inset;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.toggle-functions-btn:hover {
+  background-color: #486e46;
+}
 .button-section {
   display: flex;
   gap: 20px;
@@ -211,5 +231,3 @@ body {
   font-style: italic;
   user-select: none;
 }
-
-/* this is for test of brach */
